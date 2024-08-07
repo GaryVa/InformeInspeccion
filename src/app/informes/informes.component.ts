@@ -9,7 +9,7 @@ import { InformeService } from '../servicio/informe.service';
 export class InformesComponent implements OnInit{
   informes: any[] = [];
   selectedInforme:any = {};
-  seleccionInformeId: number | null = null;
+  mostrarTabla: boolean = false;
 
   constructor(private informeServicio: InformeService) { }
 
@@ -22,15 +22,11 @@ export class InformesComponent implements OnInit{
   seleccionInforme(id: number): void {
     this.informeServicio.getInformePuenteByID(id).subscribe(data => {
       this.selectedInforme = data;
-    }, error => { //en caso de no poder acceder a la api consigue los datos de la llamada anterior
-      console.log("error al conseguir los datos de la api", error);
-      this.seleccionInformeId = id;
-      this.selectedInforme = this.informes.find(dato => dato.idInforme === id);
+      this.mostrarTabla = Object.keys(data).length > 0;
     });
   }
 
-  resetId(): void {
-    this.seleccionInformeId = null;
+  volver():void {
+    this.mostrarTabla = false;
   }
-
 }

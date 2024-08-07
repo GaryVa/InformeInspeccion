@@ -1,6 +1,6 @@
 <div class="container">
-    <button class="quitar-informe" (click)="resetId()" *ngIf="seleccionInformeId !== null">&times;</button>
-    <div class="informes" *ngIf="seleccionInformeId === null && informes">
+    <button class="quitar-informe" (click)="volver()" *ngIf="mostrarTabla">&times;</button>
+    <div class="informes" *ngIf="!mostrarTabla && informes">
         <h1>Informes</h1>
         <ul class="botones-lista">
             <li *ngFor="let informe of informes">
@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<div *ngIf="seleccionInformeId !== null && informes" class="tabla">
+<div *ngIf="mostrarTabla" class="tabla">
     <h1>INFORME DE ONSPECCIÓN Y PRUEBA DE CARGA A GRÚAS PUENTE y/o PÓRTICO</h1>
     <table style="border: 1px solid #ddd; ">
         <tr>
