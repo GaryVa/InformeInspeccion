@@ -1,0 +1,76 @@
+<div class="container">
+    <button class="quitar-informe" (click)="resetId()" *ngIf="seleccionInformeId !== null">&times;</button>
+    <div class="informes" *ngIf="seleccionInformeId === null && informes">
+        <h1>Informes</h1>
+        <ul class="botones-lista">
+            <li *ngFor="let informe of informes">
+                <button class="numero-informe" (click)="seleccionInforme(informe.idInforme)">{{informe.idInforme}}</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="seleccionInformeId !== null && informes" class="tabla">
+    <h1>INFORME DE ONSPECCIÓN Y PRUEBA DE CARGA A GRÚAS PUENTE y/o PÓRTICO</h1>
+    <table style="border: 1px solid #ddd; ">
+        <tr>
+            <td>Informe N°</td>
+            <td colspan="3">{{selectedInforme.numeroInforme}} I</td>
+            <td colspan="2">Certificado asociado N°</td>
+            <td colspan="4">{{selectedInforme.numeroInforme}} C</td>
+        </tr>
+        <tr>
+            <td>Solicitado por</td>
+            <td>Empresa</td>
+            <td colspan="3">{{selectedInforme.empresa}}</td>
+            <td>Persona</td>
+            <td colspan="4">{{selectedInforme.persona}}</td>
+        </tr>
+        <tr>
+            <td>Equipo</td>
+            <td colspan="9">{{selectedInforme.equipo}}</td>
+        </tr>
+        <tr>
+            <td>Modelo</td>
+            <td colspan="9">{{selectedInforme.modelo}}</td>
+        </tr>
+        <tr>
+            <td>Marca</td>
+            <td colspan="9">{{selectedInforme.marca}}</td>
+        </tr>
+        <tr>
+            <td>Capacitacion nominal</td>
+            <td>Polipasto 1</td>
+            <td>{{selectedInforme.polipasto1 === 0 ? 'N/A': (selectedInforme.polipasto1 | number:'1.0-0')}}</td>
+            <td>Kg</td>
+            <td>Polipasto2</td>
+            <td>{{selectedInforme.polipasto2 === 0 ? 'N/A': (selectedInforme.polipasto2 | number:'1.0-0')}}</td>
+            <td>Kg</td>
+            <td>Polipasto 3</td>
+            <td>{{selectedInforme.polipasto3 === 0 ? 'N/A': (selectedInforme.polipasto3 | number:'1.0-0')}}</td>
+            <td>Kg</td>
+        </tr>
+        <tr>
+            <td>Fecha de fabricacion</td>
+            <td colspan="9">{{selectedInforme.fechaFabricacion}}</td>
+        </tr>
+        <tr>
+            <td>ID o número de serie</td>
+            <td colspan="4">{{selectedInforme.numeroSerie}}</td>
+            <td></td>
+            <td colspan="4"></td>
+        </tr>
+        <tr>
+            <td>Lugar de inspección y prueba</td>
+            <td colspan="9">{{selectedInforme.lugarInscripcion}}</td>
+        </tr>
+        <tr>
+            <td>Fecha de inspeccion y prueba</td>
+            <td colspan="9">{{selectedInforme.fechaInspeccion}}</td>
+        </tr>
+        <tr>
+            <td>Fecha de emision informe</td>
+            <td colspan="9">{{selectedInforme.fechaInspeccion}}</td>
+        </tr>
+    </table>
+</div>
