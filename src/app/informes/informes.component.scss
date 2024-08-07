@@ -31,8 +31,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 0;
-        margin: 0;
         list-style: none;
         max-width: 100%;
         overflow-x: auto;
@@ -41,7 +39,7 @@
     .numero-informe {
         margin: 10px;
         font-size: 30px;
-        border-radius: 20%;
+        border-radius: 10px;
         cursor: pointer;
         transition: all .5s ease;
     }
@@ -71,6 +69,7 @@ h1 {
     td {
         padding: 2px;
         border: 1px solid #a5c4d2;
+        padding-left: 10px;
     }
     
     tr:nth-child(odd) {
